@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mahalakshmi Meghana — Java & Full Stack Intern Candidate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0f0f0f;
+      --ink-2:     #3a3a3a;
+      --ink-3:     #717171;
+      --surface:   #ffffff;
+      --surface-2: #f7f6f3;
+      --surface-3: #eeece8;
+      --accent:    #1a56db;
+      --accent-2:  #e8f0fe;
+      --tag-java:  #fff4e5;
+      --tag-java-t:#7c4a00;
+      --tag-py:    #e8f5e9;
+      --tag-py-t:  #1b5e20;
+      --tag-ml:    #fce4ec;
+      --tag-ml-t:  #880e4f;
+      --tag-web:   #e3f2fd;
+      --tag-web-t: #0d47a1;
+      --radius:    10px;
+      --font-head: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--surface-3);
+      padding: 0 5vw;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 700; font-size: 17px;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500;
+      color: var(--ink-2); text-decoration: none;
+      transition: color 0.18s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 92vh;
+      display: flex; align-items: center;
+      padding: 80px 5vw 60px;
+      max-width: 1100px; margin: 0 auto;
+      gap: 60px;
+    }
+    .hero-text { flex: 1; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-2);
+      padding: 4px 12px; border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero-name {
+      font-family: var(--font-head);
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-sub {
+      font-size: 18px; font-weight: 400;
+      color: var(--ink-2); max-width: 480px;
+      margin-bottom: 32px; line-height: 1.65;
+    }
+    .hero-badges {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 36px;
+    }
+    .badge {
+      font-size: 13px; font-weight: 500;
+      padding: 5px 14px; border-radius: 20px;
+      border: 1px solid transparent;
+    }
+    .badge-java  { background: var(--tag-java);  color: var(--tag-java-t); }
+    .badge-py    { background: var(--tag-py);    color: var(--tag-py-t);   }
+    .badge-ml    { background: var(--tag-ml);    color: var(--tag-ml-t);   }
+    .badge-web   { background: var(--tag-web);   color: var(--tag-web-t);  }
+    .badge-plain { background: var(--surface-2); color: var(--ink-2); }
+
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 14px; font-weight: 600; font-family: var(--font-body);
+      padding: 11px 22px; border-radius: var(--radius);
+      text-decoration: none; cursor: pointer;
+      transition: all 0.18s; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+    }
+    .btn-primary:hover { background: #1446b8; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--ink);
+      border: 1.5px solid var(--surface-3);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    .hero-visual {
+      flex-shrink: 0;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-2) 0%, #dbeafe 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-initials {
+      font-family: var(--font-head);
+      font-size: 72px; font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -2px;
+      user-select: none;
+    }
+    .hero-stat {
+      position: absolute;
+      background: #fff;
+      border: 1px solid var(--surface-3);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 12px; font-weight: 600;
+      color: var(--ink-2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      white-space: nowrap;
+    }
+    .hero-stat-1 { bottom: 20px; left: -40px; }
+    .hero-stat-2 { top: 20px; right: -30px; }
+    .hero-stat .num { font-size: 18px; font-weight: 700; color: var(--accent); display: block; }
+
+    /* SECTIONS */
+    section { padding: 80px 5vw; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700; letter-spacing: -0.8px;
+      color: var(--ink); margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 16px; color: var(--ink-2);
+      max-width: 520px; margin-bottom: 48px;
+      line-height: 1.65;
+    }
+    .divider { border: none; border-top: 1px solid var(--surface-3); margin: 0; }
+
+    /* PROJECTS */
+    #projects { background: var(--surface-2); max-width: 100%; padding: 80px 5vw; }
+    #projects .inner { max-width: 1100px; margin: 0 auto; }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-3);
+      border-radius: 14px;
+      padding: 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+    .project-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .project-title {
+      font-family: var(--font-head);
+      font-size: 18px; font-weight: 600; color: var(--ink);
+    }
+    .project-desc { font-size: 14px; color: var(--ink-2); line-height: 1.65; flex: 1; }
+    .project-result {
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      background: var(--accent-2);
+      padding: 5px 12px; border-radius: 20px;
+      display: inline-block; width: fit-content;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 12px; font-weight: 500;
+      padding: 3px 10px; border-radius: 20px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .skill-group {
+      background: var(--surface-2);
+      border-radius: 12px; padding: 22px;
+    }
+    .skill-group-title {
+      font-size: 13px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--ink-3);
+      margin-bottom: 14px;
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-pill {
+      font-size: 13px; font-weight: 500;
+      padding: 4px 12px; border-radius: 20px;
+      background: var(--surface); color: var(--ink-2);
+      border: 1px solid var(--surface-3);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: start;
+    }
+    .about-text p { font-size: 16px; color: var(--ink-2); line-height: 1.75; margin-bottom: 18px; }
+    .about-highlights { display: flex; flex-direction: column; gap: 16px; }
+    .highlight-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--surface-2); border-radius: 12px; padding: 18px;
+    }
+    .highlight-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .highlight-title { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 3px; }
+    .highlight-sub   { font-size: 13px; color: var(--ink-3); }
+
+    /* BLOG */
+    .blog-card {
+      background: var(--surface-2);
+      border-radius: 14px; padding: 28px 32px;
+      display: flex; gap: 24px; align-items: flex-start;
+      border: 1px solid var(--surface-3);
+      transition: transform 0.18s, box-shadow 0.18s;
+      text-decoration: none;
+    }
+    .blog-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+    .blog-num {
+      font-family: var(--font-head);
+      font-size: 36px; font-weight: 700;
+      color: var(--surface-3); flex-shrink: 0;
+      line-height: 1; margin-top: 4px;
+    }
+    .blog-title { font-family: var(--font-head); font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .blog-excerpt { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+    .blog-meta { font-size: 12px; color: var(--ink-3); margin-top: 10px; }
+    .blogs-list { display: flex; flex-direction: column; gap: 16px; }
+
+    /* CONTACT */
+    #contact { background: var(--ink); max-width: 100%; }
+    #contact .inner { max-width: 1100px; margin: 0 auto; padding: 80px 5vw; }
+    #contact .section-label { color: #6ea8fe; }
+    #contact .section-title { color: #fff; }
+    #contact .section-sub { color: #9ca3af; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 16px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 500;
+      color: #e5e7eb; text-decoration: none;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 12px 20px; border-radius: var(--radius);
+      transition: background 0.18s, border-color 0.18s;
+    }
+    .contact-link:hover { background: rgba(255,255,255,0.13); border-color: #6ea8fe; color: #fff; }
+    .contact-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 24px;
+      font-size: 13px; color: var(--ink-3);
+      border-top: 1px solid var(--surface-3);
+    }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s, transform 0.5s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; padding-top: 60px; gap: 40px; }
+      .hero-visual { width: 180px; height: 180px; }
+      .hero-initials { font-size: 48px; }
+      .hero-stat-1 { bottom: -10px; left: 0; }
+      .hero-stat-2 { top: -10px; right: 0; }
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .project-card, .blog-card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#top">MM</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="top" style="max-width:1100px; margin:0 auto; padding:0 5vw;">
+  <section class="hero" style="padding-left:0; padding-right:0; max-width:100%;">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Open to Java &amp; Full Stack Internships</span>
+      <h1 class="hero-name">
+        Mahalakshmi<br/><span>Meghana</span>
+      </h1>
+      <p class="hero-sub">
+        B.Tech IT student at Vignan Institute building real things with Java, Python, and XGBoost — from banking systems to ML models that hit 88% accuracy.
+      </p>
+      <div class="hero-badges">
+        <span class="badge badge-java">Core Java</span>
+        <span class="badge badge-py">Python</span>
+        <span class="badge badge-ml">Machine Learning</span>
+        <span class="badge badge-web">Web Dev</span>
+        <span class="badge badge-plain">XGBoost</span>
+        <span class="badge badge-plain">OOP</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">See my projects ↓</a>
+        <a class="btn btn-outline" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <span class="hero-initials">MM</span>
+      <div class="hero-stat hero-stat-1">
+        <span class="num">88%</span>ML accuracy
+      </div>
+      <div class="hero-stat hero-stat-2">
+        <span class="num">3+</span>Projects built
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="divider"/>
+
+<!-- PROJECTS -->
+<div id="projects" style="background: var(--surface-2);">
+  <div class="inner" style="max-width:1100px; margin:0 auto; padding:80px 5vw;">
+    <p class="section-label reveal">Projects</p>
+    <h2 class="section-title reveal">Things I've built</h2>
+    <p class="section-sub reveal">Real projects — each one taught me something different about writing software.</p>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:#fff4e5;">💻</div>
+        <div class="project-title">ATM Management System</div>
+        <p class="project-desc">
+          A console-based banking simulation built in Core Java. Implemented account creation, deposits, withdrawals, balance checks, and exception handling — all using OOP principles like encapsulation and inheritance.
+        </p>
+        <div class="project-tags">
+          <span class="tag badge-java">Core Java</span>
+          <span class="tag badge-plain" style="background:var(--surface-2); color:var(--ink-2);">OOP</span>
+          <span class="tag badge-plain" style="background:var(--surface-2); color:var(--ink-2);">Exception Handling</span>
+          <span class="tag badge-plain" style="background:var(--surface-2); color:var(--ink-2);">Console App</span>
+        </div>
+        <div class="project-result">Internship project · Solo</div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:#fce4ec;">🤖</div>
+        <div class="project-title">ScoreXG Booster</div>
+        <p class="project-desc">
+          Machine learning model built at the XGML Hackathon. Used XGBoost for prediction, handled feature engineering, model training, and evaluation as part of a competitive team. Achieved 88% accuracy on the test set.
+        </p>
+        <div class="project-tags">
+          <span class="tag badge-py">Python</span>
+          <span class="tag badge-ml">XGBoost</span>
+          <span class="tag badge-ml">Machine Learning</span>
+          <span class="tag badge-plain" style="background:var(--surface-2); color:var(--ink-2);">Hackathon</span>
+        </div>
+        <div class="project-result">88% accuracy · XGML Hackathon</div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:#e3f2fd;">🌐</div>
+        <div class="project-title">DTI Random Connect</div>
+        <p class="project-desc">
+          A web-based student networking platform that connects college students through a structured matching interface. Built with a 4-member team — contributed to backend logic, project planning, and team coordination.
+        </p>
+        <div class="project-tags">
+          <span class="tag badge-web">Web Platform</span>
+          <span class="tag badge-py">Team Project</span>
+          <span class="tag badge-plain" style="background:var(--surface-2); color:var(--ink-2);">4-member team</span>
+        </div>
+        <div class="project-result">Team project · 4 members</div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:#e8f5e9;">🎮</div>
+        <div class="project-title">Number Guessing Game</div>
+        <p class="project-desc">
+          An interactive Java console game with random number generation, input validation, scoring logic, and difficulty levels. Built as part of internship training to practice control flow, loops, and user interaction design.
+        </p>
+        <div class="project-tags">
+          <span class="tag badge-java">Core Java</span>
+          <span class="tag badge-plain" style="background:var(--surface-2); color:var(--ink-2);">Control Flow</span>
+          <span class="tag badge-plain" style="background:var(--surface-2); color:var(--ink-2);">Console App</span>
+        </div>
+        <div class="project-result">Internship project · Solo</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">Skills</p>
+  <h2 class="section-title reveal">What I work with</h2>
+  <p class="section-sub reveal">Languages, tools, and concepts I've used in real projects — not just courses.</p>
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Core Java</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Concepts</div>
+      <div class="skill-pills">
+        <span class="skill-pill">OOP</span>
+        <span class="skill-pill">Exception Handling</span>
+        <span class="skill-pill">Data Structures</span>
+        <span class="skill-pill">REST APIs</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">ML & Data</div>
+      <div class="skill-pills">
+        <span class="skill-pill">XGBoost</span>
+        <span class="skill-pill">Machine Learning</span>
+        <span class="skill-pill">Feature Engineering</span>
+        <span class="skill-pill">Google Colab</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Tools & Platforms</div>
+      <div class="skill-pills">
+        <span class="skill-pill">Git & GitHub</span>
+        <span class="skill-pill">VS Code</span>
+        <span class="skill-pill">IntelliJ IDEA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label reveal">About</p>
+  <h2 class="section-title reveal">Who I am</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm a second-year B.Tech Information Technology student at Vignan Institute of Information Technology, Visakhapatnam. My goal is to land a Java or Full Stack internship where I can contribute from day one and learn faster alongside a real engineering team.
+      </p>
+      <p>
+        I got serious about coding through hands-on projects — not just theory. Building the ATM system taught me how OOP actually works in practice. The XGML hackathon taught me how to move fast under pressure, debug in real time, and ship something that works — 88% accuracy in a competitive environment.
+      </p>
+      <p>
+        Outside of code, I coordinate all department-level student events as SAC Club Coordinator at Vignan, including Yuvatarang — a national-level techno fiesta. Managing event planning, teams, and communications has made me a better collaborator and communicator.
+      </p>
+    </div>
+    <div class="about-highlights reveal">
+      <div class="highlight-item">
+        <div class="highlight-icon">🎓</div>
+        <div>
+          <div class="highlight-title">B.Tech Information Technology</div>
+          <div class="highlight-sub">Vignan Institute of Information Technology · 2024–2028</div>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🏆</div>
+        <div>
+          <div class="highlight-title">XGML Hackathon</div>
+          <div class="highlight-sub">ScoreXG Booster — 88% ML accuracy</div>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">📋</div>
+        <div>
+          <div class="highlight-title">SAC Club Coordinator</div>
+          <div class="highlight-sub">Yuvatarang national techno fiesta · Vignan, Aug 2025–present</div>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">📍</div>
+        <div>
+          <div class="highlight-title">Location</div>
+          <div class="highlight-sub">Visakhapatnam, Andhra Pradesh · Open to remote internships</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- BLOG -->
+<section id="blog" style="background: var(--surface);">
+  <p class="section-label reveal">Blog</p>
+  <h2 class="section-title reveal">What I've learned</h2>
+  <p class="section-sub reveal">Short posts on things I built, broke, and figured out along the way.</p>
+  <div class="blogs-list">
+
+    <a class="blog-card reveal" href="#blog">
+      <div class="blog-num">01</div>
+      <div>
+        <div class="blog-title">What building an ATM System actually taught me about OOP</div>
+        <p class="blog-excerpt">I thought I understood classes and objects from lectures. Then I tried to build a working ATM in Java and realized I understood almost nothing. Here's what changed.</p>
+        <div class="blog-meta">Coming soon · Java · OOP</div>
+      </div>
+    </a>
+
+    <a class="blog-card reveal" href="#blog">
+      <div class="blog-num">02</div>
+      <div>
+        <div class="blog-title">How our team hit 88% accuracy at the XGML Hackathon</div>
+        <p class="blog-excerpt">We had a few hours, a messy dataset, and XGBoost. This is the exact process we followed — what worked, what didn't, and what I'd do differently next time.</p>
+        <div class="blog-meta">Coming soon · Python · XGBoost · Machine Learning</div>
+      </div>
+    </a>
+
+    <a class="blog-card reveal" href="#blog">
+      <div class="blog-num">03</div>
+      <div>
+        <div class="blog-title">Coordinating a national techno fest as a second-year student</div>
+        <p class="blog-excerpt">What Yuvatarang taught me about deadlines, team dynamics, and why being a good developer and a good communicator are the same skill.</p>
+        <div class="blog-meta">Coming soon · Leadership · SAC · Yuvatarang</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<div id="contact" style="background: var(--ink);">
+  <div class="inner" style="max-width:1100px; margin:0 auto; padding:80px 5vw;">
+    <p class="section-label reveal">Contact</p>
+    <h2 class="section-title reveal" style="color:#fff;">Let's connect</h2>
+    <p class="section-sub reveal" style="color:#9ca3af; margin-bottom:36px;">
+      Open to Java and Full Stack internship opportunities. If you're hiring or want to collaborate on a project, reach out.
+    </p>
+    <div class="contact-links reveal">
+      <a class="contact-link" href="mailto:medandraomahalakshmimeghana@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        medandraomahalakshmimeghana@gmail.com
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/mahalakshmi-meghana-medandrao-35862a332/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        LinkedIn
+      </a>
+      <a class="contact-link" href="https://github.com/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a class="contact-link" href="tel:+917416192530">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        +91 7416192530
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Built by Mahalakshmi Meghana · Visakhapatnam, Andhra Pradesh · 2025
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
